@@ -1,5 +1,8 @@
 package entities;
 //gg
+import exception.AmigoNaoEncontradoException;
+import exception.ListaNulaException;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,7 +20,7 @@ public class SistemaAmigo {
         this.amigos.add(new Amigo(nomeAmigo,emailAmigo));
     }
 
-    public Amigo pesquisaAmigo(String emailAmigo) throws AmigoNaoEncontradoException{
+    public Amigo pesquisaAmigo(String emailAmigo) throws AmigoNaoEncontradoException {
         for(Amigo x: amigos){
             if(x.getEmail().equalsIgnoreCase(emailAmigo)){
                 return x;
@@ -48,7 +51,7 @@ public class SistemaAmigo {
             amigosNaoSorteados.remove(posicaoDaListaSorteada);
         }
     }
-    public List<Mensagem> pesquisaMensagensAnonimas() throws ListaNulaException{
+    public List<Mensagem> pesquisaMensagensAnonimas() throws ListaNulaException {
         List<Mensagem> listaAnonima = new ArrayList<>();
         for(Mensagem x: mensagems){
             if(x.isAnonima()){
